@@ -1,0 +1,51 @@
+<!-- BANNER -->
+<div class="section" style="background-color: #113e21;">
+    <div class="grid banner">
+        <div><small><%= new Intl.DateTimeFormat('en-us', { dateStyle: 'full'}).format(date) %></small></div>
+    </div>
+</div>
+
+<!-- NAVBAR -->
+<div class="section" style="background-color: #fefefe;">
+    <div class="grid navbar-g">
+        <div></div>
+        <div class="logo"><a href="#">Caine Spiwak</a></div>
+        <div class="toggle_btn"><i class="fa-solid fa-bars"></i></div>
+    </div>
+</div>
+
+<!-- MENU -->
+<div class="section">
+    <div class="container_a">
+        <div></div>
+        <div></div>
+        <div class="dropdown_menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+        <script>
+            const toggleBtn = document.querySelector('.toggle_btn')
+            const toggleBtnIcon = document.querySelector('.toggle_btn i')
+            const dropDownMenu = document.querySelector('.dropdown_menu')
+        
+            toggleBtn.onclick = function () {
+                dropDownMenu.classList.toggle('open')
+                const isOpen = dropDownMenu.classList.contains('open')
+        
+                toggleBtnIcon.classList = isOpen
+                ? 'fa-solid fa-xmark'
+                : 'fa-solid fa-bars'
+            }
+    
+            document.addEventListener('click', e => {
+                if(!dropDownMenu.contains(e.target) && e.target !== toggleBtnIcon) {
+                    dropDownMenu.classList.remove('open')
+                }
+            })
+        </script>
+    </div>
+</div>
+
